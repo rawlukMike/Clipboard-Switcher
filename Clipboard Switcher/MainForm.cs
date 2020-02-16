@@ -17,6 +17,8 @@ namespace Clipboard_Switcher
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             var lookFor = replaceBox.Text;
+            //Fix for "/ and \"
+            lookFor = Regex.Escape(lookFor);
             if (lookFor.Length <= 0)
             {
                 foundCount.Text = @"0";
